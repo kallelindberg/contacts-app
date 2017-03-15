@@ -56,8 +56,8 @@
 
     function load(){
         document.getElementById("button").setAttribute('onclick', "onButtonClick()");
-        if (localStorage.getItem('List') !== ""){
-            var object = localStorage.getItem("List");
+        if (localStorage.getItem('list') != ""){
+            var object = localStorage.getItem("list");
             list = JSON.parse(object);
             fillTable(list);
         }
@@ -88,10 +88,10 @@
         }
     }
     function storeList(object){
-        localStorage.setItem("List", JSON.stringify(object));
+        localStorage.setItem("list", JSON.stringify(object));
     }
     function deleteList(){
-        localStorage.setItem("List", "");
+        localStorage.setItem("list", "");
         list = [];
         document.getElementById("table").innerHTML = initTable;
     }
