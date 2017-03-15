@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3K00d1</title>
+
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+
+</head>
+<body onload="load()">
+<table>
+    <tr>
+        <th>First Name</th><th><input name="FirstName" type="text" maxlength="512" id="fName" class="searchField"/></th>
+    </tr>
+    <tr>
+        <th>Last Name</th><th><input name="LastName" type="text" maxlength="512" id="lName" class="searchField"/></th>
+    </tr>
+    <tr>
+        <th>Age</th><th><input name="Age" type="text" maxlength="512" id="age" class="searchField"/></th>
+    </tr>
+    <tr>
+        <th>Address</th><th><input name="Address" type="text" maxlength="512" id="address" class="searchField"/></th>
+    </tr>
+    <tr>
+        <th></th><th><input type="button" value="add" onclick="add()"/></th>
+    </tr>
+</table>
+
+
+
+
+<br><br>
+<div id="name" class="ekoodi-text">Contacts</div>
+<table id="table" style="width:60%">
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th>
+        <th>Address</th>
+        <th style="width: 90px;"></th>
+    </tr>
+</table>
+<button onclick="deleteList()">delete list</button>
+
+
+<script>
+
+    var entry, list = [];
+    var initTable = document.getElementById("table").innerHTML;
+    var deleteButton = 'blobbo';
+
+    function load(){
+        if (localStorage.getItem('List') != ""){
+            var object = localStorage.getItem("List");
+            list = JSON.parse(object);
+            fillTable(list);
+        }
+    }
+
+    function add() {
+
+        var firstName = document.getElementById("fName").value;
+        var lastName = document.getElementById("lName").value;
+        var age = document.getElementById("age").value;
+        var address = document.getElementById("address").value;
+        entry = [firstName, lastName, age, address];
+        list.push(entry);
+        storeList(list);
+        fillTable(list);
+    }
+
+    function fillTable(object){
+        var table = document.getElementById("table");
+        table.innerHTML = initTable;
+        for (var c =0; c < object.length; c++){
+            var row = table.insertRow(c+1);
+            for (var i = 0; i < object[c].length; i++) {
+                row.insertCell(i).innerHTML = object[c][i];
+            }
+            row.insertCell(4).innerHTML = '<input type="button" value="edit" onClick="Javascript:editContact(this)"><input type="button" value="delete" onClick="Javascript:deleteContact(this)">';
+        }
+    }
+    function storeList(object){
+        localStorage.setItem("List", JSON.stringify(object));
+    }
+    function deleteList(){
+        localStorage.setItem("List", "");
+        list = [];
+        document.getElementById("table").innerHTML = initTable;
+    }
+
+    function deleteContact(object){
+        var table = document.getElementById("table");
+        var index = object.parentNode.parentNode.rowIndex;
+        table.deleteRow(index);
+        list.splice(index-1, 1);
+        storeList(list);
+    }
+
+    function editContact(object){
+        var table = document.getElementById("table");
+        var index = object.parentNode.parentNode.rowIndex -1;
+        document.getElementById("fName").value = list[index][0];
+        document.getElementById("lName").value = list[index][0];
+        document.getElementById("age").value = list[index][0];
+        document.getElementById("address").value = list[index][0];
+        document.getElementById("button").value = "Edit";
+        document.getElementById("button").onclick = "submitEdit()";
+    }
+    fuction submitEdit(){
+        
+    }
+
+</script>
+</body>
+</html>
