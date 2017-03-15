@@ -56,7 +56,7 @@
 
     function load(){
         document.getElementById("button").setAttribute('onclick', "onButtonClick()");
-        if (localStorage.getItem('list') != ""){
+        if (localStorage.getItem('list') != null){
             var object = localStorage.getItem("list");
             list = JSON.parse(object);
             fillTable(list);
@@ -91,7 +91,7 @@
         localStorage.setItem("list", JSON.stringify(object));
     }
     function deleteList(){
-        localStorage.setItem("list", "");
+        localStorage.clear();
         list = [];
         document.getElementById("table").innerHTML = initTable;
     }
