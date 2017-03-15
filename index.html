@@ -23,7 +23,7 @@
         <th>Address</th><th><input name="Address" type="text" maxlength="512" id="address" class="searchField"/></th>
     </tr>
     <tr>
-        <th></th><th><input type="button" value="add" onclick="add()"/></th>
+        <th></th><th><input type="button" id="button" value="Add" ></th>
     </tr>
 </table>
 
@@ -47,10 +47,11 @@
 <script>
 
     var entry, list = [];
+    var editMode = false;
     var initTable = document.getElementById("table").innerHTML;
-    var deleteButton = 'blobbo';
 
     function load(){
+        document.getElementById("button").setAttribute('onclick', "onButtonClick()");
         if (localStorage.getItem('List') != ""){
             var object = localStorage.getItem("List");
             list = JSON.parse(object);
@@ -58,7 +59,7 @@
         }
     }
 
-    function add() {
+    function onButtonClick() {
 
         var firstName = document.getElementById("fName").value;
         var lastName = document.getElementById("lName").value;
@@ -101,15 +102,38 @@
     function editContact(object){
         var table = document.getElementById("table");
         var index = object.parentNode.parentNode.rowIndex -1;
+        var holder = "submitEdit("+index+")";
         document.getElementById("fName").value = list[index][0];
-        document.getElementById("lName").value = list[index][0];
-        document.getElementById("age").value = list[index][0];
-        document.getElementById("address").value = list[index][0];
-        document.getElementById("button").value = "Edit";
-        document.getElementById("button").onclick = "submitEdit()";
+        document.getElementById("lName").value = list[index][1];
+        document.getElementById("age").value = list[index][2];
+        document.getElementById("address").value = list[index][3];
+        document.getElementById("button").value = "Submit";
+        document.getElementById("button").setAttribute('onclick', holder);
+
     }
-    fuction submitEdit(){
-        
+    function submitEdit(object){
+        var firstName = document.getElementById("fName").value;
+        var lastName = document.getElementById("lName").value;
+        var age = document.getElementById("age").value;
+        var address = document.getElementById("address").value;
+
+        document.getElementById("fName").value = list[object][0];
+        document.getElementById("lName").value = list[object][1];
+        document.getElementById("age").value = list[object][2];
+        document.getElementById("address").value = list[object][3];
+        entry = [firstName, lastName, age, address];
+        list[object]=entry;
+        storeList(list);
+        fillTable(list);
+        initFields();
+    }
+    function initFields(){
+        editMode = false;
+        document.getElementById("fName").value = "";
+        document.getElementById("lName").value = "";
+        document.getElementById("age").value = "";
+        document.getElementById("address").value = "";
+        document.getElementById("button").value = "Add";
     }
 
 </script>
