@@ -43,7 +43,7 @@
         <th>Lastname</th>
         <th>Age</th>
         <th>Address</th>
-        <th><button class="mdl-button mdl-button--raised" onclick="deleteList()">delete list</button></th>
+        <th><button id=deleteList" class="mdl-button mdl-button--raised" onclick="deleteList()">delete list</button></th>
     </tr>
 </table>
 </th></tr></table>
@@ -56,7 +56,7 @@
 
     function load(){
         document.getElementById("button").setAttribute('onclick', "onButtonClick()");
-        if (localStorage.getItem('List') != ""){
+        if (localStorage.getItem('List') !== ""){
             var object = localStorage.getItem("List");
             list = JSON.parse(object);
             fillTable(list);
@@ -84,7 +84,7 @@
             for (var i = 0; i < object[c].length; i++) {
                 row.insertCell(i).innerHTML = object[c][i];
             }
-            row.insertCell(4).innerHTML = '<input type="button" class="mdl-button mdl-button--raised" value="edit" onClick="Javascript:editContact(this)"><input type="button" class="mdl-button mdl-button--raised" value="del" onClick="Javascript:deleteContact(this)">';
+            row.insertCell(4).innerHTML = '<input type="button" id="editButton" class="mdl-button mdl-button--raised" value="edit" onClick="Javascript:editContact(this)"><input type="button" id="deleteButton" class="mdl-button mdl-button--raised" value="del" onClick="Javascript:deleteContact(this)">';
         }
     }
     function storeList(object){
@@ -114,7 +114,6 @@
         document.getElementById("address").value = list[index][3];
         document.getElementById("button").value = "Submit";
         document.getElementById("button").setAttribute('onclick', holder);
-
     }
     function submitEdit(object){
         var firstName = document.getElementById("fName").value;
