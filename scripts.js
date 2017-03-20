@@ -3,15 +3,27 @@ var entry, list = [];
 var initTable = document.getElementById("table").innerHTML;
 
 function load(){
-    document.getElementById("button").setAttribute('onclick', "onButtonClick()");
-    if (localStorage.getItem('list') != null && localStorage.getItem('list') !=""){
+    initFields();
+    if (localStorage.getItem('list')){
         var object = localStorage.getItem("list");
         list = JSON.parse(object);
         fillTable(list);
     }
+    else{
+        document.getElementById("deleteList").disabled = true;
+    }
 }
 
-function onButtonClick() {
+function initFields(){
+    document.getElementById("fName").value = "";
+    document.getElementById("lName").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("address").value = "";
+    document.getElementById("button").value = "Add";
+    document.getElementById("button").setAttribute('onclick', "add()");
+}
+
+function add() {
 
     var firstName = document.getElementById("fName").value;
     var lastName = document.getElementById("lName").value;
@@ -27,6 +39,7 @@ function onButtonClick() {
 function fillTable(object){
     var table = document.getElementById("table");
     table.innerHTML = initTable;
+    document.getElementById("deleteList").disabled = false;
     for (var c =0; c < object.length; c++){
         var row = table.insertRow(c+1);
         for (var i = 0; i < object[c].length; i++) {
@@ -39,6 +52,7 @@ function fillTable(object){
         }
         row.insertCell(4).innerHTML = '<input name="edit" type="button" class="mdl-button mdl-button--raised" value="edit" onClick="Javascript:editContact(this)"><input type="button" name ="delete" class="mdl-button mdl-button--raised" value="del" onClick="Javascript:deleteContact(this)">';
     }
+
 }
 function storeList(object){
     localStorage.setItem("list", JSON.stringify(object));
@@ -55,6 +69,9 @@ function deleteContact(object){
     table.deleteRow(index);
     list.splice(index-1, 1);
     storeList(list);
+    if(list==""){
+        document.getElementById("deleteList").disabled = true;
+    }
 }
 
 function editContact(object){
@@ -67,7 +84,7 @@ function editContact(object){
     document.getElementById("address").value = list[index][3];
     document.getElementById("button").value = "Submit";
     document.getElementById("button").setAttribute('onclick', holder);
-    document.getElementById("deleteList").disabled = "true";
+    document.getElementById("deleteList").disabled = true;
     var disAbListE = document.getElementsByName("edit");
     for(var i = 0; i < disAbListE.length; i++) {
         disAbListE[i].disabled = true;
@@ -77,29 +94,18 @@ function editContact(object){
         disAbListD[i].disabled = true;
     }
 
+
 }
-function submitEdit(object){
+function submitEdit(index){
     var firstName = document.getElementById("fName").value;
     var lastName = document.getElementById("lName").value;
-    var age = document.getElementById("phone").value;
+    var phone = document.getElementById("phone").value;
     var address = document.getElementById("address").value;
-
-    document.getElementById("fName").value = list[object][0];
-    document.getElementById("lName").value = list[object][1];
-    document.getElementById("phone").value = list[object][2];
-    document.getElementById("address").value = list[object][3];
-    document.getElementById("button").setAttribute('onclick', "onButtonClick()");
-    entry = [firstName, lastName, age, address];
-    list[object]=entry;
+    entry = [firstName, lastName, phone, address];
+    list[index]=entry;
     storeList(list);
     fillTable(list);
     initFields();
 }
-function initFields(){
-    document.getElementById("fName").value = "";
-    document.getElementById("lName").value = "";
-    document.getElementById("phone").value = "";
-    document.getElementById("address").value = "";
-    document.getElementById("button").value = "Add";
-}
+
 
