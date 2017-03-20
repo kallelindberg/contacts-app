@@ -39,7 +39,9 @@ function add() {
 function fillTable(object){
     var table = document.getElementById("table");
     table.innerHTML = initTable;
-    document.getElementById("deleteList").disabled = false;
+    if(list!="") {
+        document.getElementById("deleteList").disabled = false;
+    }
     for (var c =0; c < object.length; c++){
         var row = table.insertRow(c+1);
         for (var i = 0; i < object[c].length; i++) {
@@ -61,6 +63,7 @@ function deleteList(){
     localStorage.clear();
     list = [];
     document.getElementById("table").innerHTML = initTable;
+    document.getElementById("deleteList").disabled = true;
 }
 
 function deleteContact(object){
