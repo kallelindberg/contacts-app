@@ -1,6 +1,17 @@
 
+
 var entry, list = [];
 var initTable = document.getElementById("table").innerHTML;
+
+$(document).ready(function(){
+    $.post("http://localhost:53981/api/users/",
+            {
+                "Id":2,"FirstName":"Joku","LastName":"Toinen","Phone":"","Address":""
+            },
+            function(data,status){
+                alert("Data: " + data + "\nStatus: " + status);
+            });
+});
 
 function load(){
     initFields();
