@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Web.Http;
 using WebApi.Models;
 
 namespace WebApi.services
@@ -8,13 +10,15 @@ namespace WebApi.services
     {
         private readonly List<User> _users;
 
+
         public UserService()
         {
             _users = new List<User>()
             {
-                new User(0, "Sami", "Anttonen","",""),
-                new User(1, "Joku", "Toinen","","")
+                new User(1, "Sami", "Anttonen","",""),
+                new User(2, "Joku", "Toinen","","")
             };
+            
         }
 
         public List<User> FindAllUsers()
@@ -27,22 +31,19 @@ namespace WebApi.services
             return _users.FirstOrDefault(u => u.Id == id);
         }
 
-        public List<User> AddUser(User user)
+        public void AddUser([FromBody]User user)
         {
             _users.Add(user);
-            return _users;
         }
 
-        public List<User> UpdateUser(User user)
+        public void UpdateUser([FromBody]User user)
         {
             _users.Insert(user.Id,user);
-            return _users;
         }
 
-        public List<User> DeleteUser(int id)
+        public void DeleteUser(int id)
         {
             _users.RemoveAt(id);
-            return _users;
         }
     }
 }
