@@ -3,7 +3,7 @@ using System.Dynamic;
 
 namespace WebApi.Models
 {
-    public class User
+    public class Contact
     {
 
         public int Id { get; set; }
@@ -16,7 +16,7 @@ namespace WebApi.Models
 
         public string Address { get; set; }
 
-        public User(int id, string firstName, string lastName, string phone, string address)
+        public Contact(int id, string firstName, string lastName, string phone, string address)
         {
             Id = id;
             FirstName = firstName;
