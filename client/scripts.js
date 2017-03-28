@@ -1,21 +1,9 @@
 
-
-var list = [];
 var initTable = document.getElementById("table").innerHTML;
 
 function load(){
     initFields();
     getList();
-
-    //if (localStorage.getItem('list')){
-    //    var object = localStorage.getItem("list");
-    //    list = JSON.parse(object);
-    //    fillTable(list);
-    //}
-    //else{
-    //    document.getElementById("deleteList").disabled = true;
-    //}
-
 }
 
 function getList(){
@@ -77,13 +65,8 @@ function add() {
     initFields();
 }
 
-
-//function storeList(object){
-//    localStorage.setItem("list", JSON.stringify(object));
-//}
 function editContact(object){
-    var index = object.parentNode.parentNode.dataset.id;
-    var holder = "submitEdit("+index+")";
+    var holder = "submitEdit("+object.parentNode.parentNode.dataset.id+")";
     document.getElementById("fName").value = object.parentNode.parentNode.cells[0].innerHTML;
     document.getElementById("lName").value = object.parentNode.parentNode.cells[1].innerHTML;
     document.getElementById("phone").value = object.parentNode.parentNode.cells[2].innerHTML;
@@ -118,33 +101,21 @@ function submitEdit(index){
                 fillTable(data);
             }
         });
-
-    //list[index]=entry;
-    //storeList(list);
-    //fillTable(list);
 }
 
 function deleteList(){
-    //localStorage.clear();
     $.ajax("http://localhost:53981/api/contacts/",
         {
             method: "DELETE",
-            contentType : 'application/json; charset=utf-8'
+            contentType : 'text'
         });
-    //list = [];
     document.getElementById("table").innerHTML = initTable;
     document.getElementById("deleteList").disabled = true;
 }
 
 function deleteContact(object){
-    //var table = document.getElementById("table");
-    var index = object.parentNode.parentNode.dataset.id;
-    //var index = object.parentNode.parentNode.row;
-    //table.deleteRow(index+1);
-    //list.splice(index-1, 1);
-    //storeList(list);
 
-    $.ajax("http://localhost:53981/api/contacts/"+ index,
+    $.ajax("http://localhost:53981/api/contacts/"+ object.parentNode.parentNode.dataset.id,
         {
             method: "DELETE",
             contentType : 'application/json; charset=utf-8',
