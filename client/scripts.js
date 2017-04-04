@@ -34,7 +34,7 @@ function fillTable(object){
         row.insertCell(3).innerHTML = "<a href ='https://www.google.fi/maps/place/"+object[c].Address+"'target='_blank'>"+object[c].Address+"</a>";
         row.cells[3].dataset.text = object[c].Address;
         row.insertCell(4).innerHTML = '<input name="edit" type="button" class="mdl-button mdl-button--raised" value="edit" onClick="Javascript:editContact(this)"><input type="button" name ="delete" class="mdl-button mdl-button--raised" value="del" onClick="Javascript:deleteContact(this)">';
-}
+    }
 
 }
 
