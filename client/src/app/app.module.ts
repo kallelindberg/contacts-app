@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule }from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { ContactListComponent } from './contact/contact-list/contact-list/contact-list.component';
+import { ContactListComponent } from './contact/contact-list/contact-list.component';
 import {ContactService} from "./contact/services/contact.service";
 
 @NgModule({
