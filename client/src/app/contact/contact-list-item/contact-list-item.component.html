@@ -1,3 +1,12 @@
 <md-card>
-  {{contact.firstName + ' ' + contact.lastName}}
+  <h1 class="md-headline">{{contact.firstName + ' ' + contact.lastName}}</h1>
+  <p class="md-body-1">{{contact.streetAddress + ' ' + contact.City}}<br>
+    {{contact.phone}}</p>
+  <button md-icon-button (click)="onClick">
+    <md-icon class="md-18">mode_edit</md-icon>
+  </button>
+  <button md-icon-button (click)="onClick">
+    <md-icon class="md-18">delete</md-icon>
+  </button>
+  <br>
 </md-card>
