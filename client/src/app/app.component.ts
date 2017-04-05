@@ -13,7 +13,7 @@ export class AppComponent {
   selectedContact: Contact;
 
   constructor(contactService: ContactService){
-    contactService.findContacts();
+    this.contacts = contactService.findContacts();
   }
 
   contactSelected(contact: Contact){
