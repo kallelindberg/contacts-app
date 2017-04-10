@@ -1,2 +1,7 @@
-<app-contact-list-item *ngFor="let contact of contacts" [contact] ="contact" ></app-contact-list-item>
+<app-contact-list-item *ngFor="let contact of contacts"
+                       [contact] ="contact"
+                       [edit]="editContact"
+                       [remove]="removeContact"
+                       [show]="showContact">
+</app-contact-list-item>
 

@@ -1,8 +1,8 @@
 <main fxLayout="column" fxLayoutAlign="start center">
 <div fxLayout="column" fxLayoutAlign="start end" >
-  <app-contact-list [contacts]="contacts"></app-contact-list>
+  <app-contact-list [contacts]="contacts" (editContact)="contactEdit($event)" (removeContact)="removeContact($event)" (showContact)="showContact($event)"></app-contact-list>
 
-  <button md-fab>
+  <button md-fab (click)="addContact($event)">
     <md-icon>add</md-icon>
   </button>
   </div>

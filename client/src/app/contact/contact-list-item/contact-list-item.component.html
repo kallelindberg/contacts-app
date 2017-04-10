@@ -2,11 +2,14 @@
   <h1 class="md-headline">{{contact.firstName + ' ' + contact.lastName}}</h1>
   <p class="md-body-1">{{contact.streetAddress + ' ' + contact.City}}<br>
     {{contact.phone}}</p>
-  <button md-icon-button (click)="onClick">
+  <button md-icon-button (click)="editContact(contact)">
     <md-icon class="md-18">mode_edit</md-icon>
   </button>
-  <button md-icon-button (click)="onClick">
+  <button md-icon-button (click)="removeContact(contact)">
     <md-icon class="md-18">delete</md-icon>
+  </button>
+  <button md-icon-button (click)="showContact(contact)">
+  <md-icon class="md-18">location_on</md-icon>
   </button>
   <br>
 </md-card>
