@@ -1,3 +1,15 @@
-<p>
-  map-dialog works!
-</p>
+<main fxLayout="column" fxLayoutAlign="start center">
+  <div fxLayout="column" fxLayoutAlign="end end" >
+    <iframe
+      [src]="mapString(url)"
+      width="600"
+      height="450"
+      frameborder="0" style="border:0"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <button md-button (click)="closeDialog()">
+      <md-icon class="md-18">close</md-icon>
+
+  </button>
+</main>

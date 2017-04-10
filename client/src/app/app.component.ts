@@ -12,15 +12,15 @@ import {DialogService} from "./contact/services/dialog.service";
 export class AppComponent {
 
   contacts: Contact[];
-  selectedContact: Contact;
 
   constructor(private contactService: ContactService, private dialogService: DialogService){
     this.contacts = contactService.findContacts();
   }
 
   contactEdit(contact: Contact){
-    //this.selectedContact = contact;
-    this.dialogService.contactDialog(contact);
+    this.dialogService.contactDialog(contact).subscribe(result => {
+
+    });
   }
 
   removeContact(contact: Contact){
@@ -33,7 +33,9 @@ export class AppComponent {
     this.dialogService.mapDialog(address);
   }
 
-  addContact(contact: Contact){
-    this.dialogService.contactDialog(contact);
+  addContact(){
+    this.dialogService.contactDialog().subscribe(result => {
+
+    });
   }
 }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Contact } from '../contact';
+import {MdDialogRef} from "@angular/material";
 
 @Component({
   selector: 'app-contact-dialog',
@@ -8,9 +9,13 @@ import { Contact } from '../contact';
 })
 export class ContactDialogComponent implements OnInit {
 
-  @Input() contact: Contact;
+  contact: Contact;
 
-  constructor() { }
+  constructor(public dialog: MdDialogRef<ContactDialogComponent>) { }
+
+  closeDialog(){
+    this.dialog.close("sdfsd");
+  }
 
   ngOnInit() {
   }
