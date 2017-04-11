@@ -8,11 +8,8 @@ export class ContactService {
   private contacts: Contact[];
 
   constructor() {
-    this.contacts = [
-      new Contact(1,'blobbo', 'fwefwwefwe', '06957780608960', 'Rietinkatu', 'Lappeenranta'),
-      new Contact(2,'fwefwerfo', 'yujyujyur'),
-      new Contact(3,'rwerwerwer', 'fertertert')
-    ];
+    this.contacts = [new Contact(null,'','','','','')];
+    this.contacts.splice(0,1);
   }
 
   public findContacts(): Contact[]{
@@ -25,14 +22,20 @@ export class ContactService {
   }
 
   public addContact(contact){
-    let maxId = _.maxBy(this.contacts, "id").id;
-    contact.id = maxId+1;
-    this.contacts.push(contact);
+    if(this.contacts[0]) {
+      let maxId = _.maxBy(this.contacts, "id").id;
+      contact.id = maxId + 1;
+      this.contacts.push(contact);
+    }
+    else{
+      contact.id = 1;
+      this.contacts.push(contact);
+    }
   }
 
   public editContact(contact){
     let index =  this.contacts.findIndex((item) => item.id === contact.id);
-    this.contacts.fill(contact,index,index);
+    this.contacts.fill(contact,1,1);
   }
 
 }

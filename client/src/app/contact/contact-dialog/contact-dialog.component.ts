@@ -29,7 +29,7 @@ export class ContactDialogComponent implements OnInit {
 
   ngOnInit() {
     if(!this.contact){
-      this.contact = new Contact(null,'', '', '', '', '')
+      this.contact = new Contact(null,'', '', '', '', '');
     }
 
   }

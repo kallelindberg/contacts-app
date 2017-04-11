@@ -2,14 +2,20 @@
   <h1 class="md-headline">{{contact.firstName + ' ' + contact.lastName}}</h1>
   <p class="md-body-1">{{contact.streetAddress + ' ' + contact.city}}<br>
     {{contact.phone}}</p>
+  <div fxLayout="row" fxLayoutAlign="space-between end" >
+  <div fxLayout="row" fxLayoutAlign="start start">
   <button md-icon-button (click)="editContact(contact)">
     <md-icon class="md-18">mode_edit</md-icon>
   </button>
   <button md-icon-button (click)="removeContact(contact)">
     <md-icon class="md-18">delete</md-icon>
   </button>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="start end">
   <button md-icon-button (click)="showContact(contact)">
   <md-icon class="md-18">location_on</md-icon>
   </button>
-  <br>
+  </div>
+  </div>
+
 </md-card>
