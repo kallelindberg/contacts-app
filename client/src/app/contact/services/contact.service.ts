@@ -8,8 +8,7 @@ export class ContactService {
   private contacts: Contact[];
 
   constructor() {
-    this.contacts = [new Contact(null,'','','','','')];
-    this.contacts.splice(0,1);
+    this.contacts = [];
   }
 
   public findContacts(): Contact[]{

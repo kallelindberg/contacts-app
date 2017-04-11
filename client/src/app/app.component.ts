@@ -14,12 +14,14 @@ export class AppComponent {
   contacts: Contact[];
 
   constructor(private contactService: ContactService, private dialogService: DialogService){
-    this.contacts = contactService.findContacts();
+      this.contacts = contactService.findContacts();
   }
 
   contactEdit(contact: Contact){
     this.dialogService.contactDialog(contact).subscribe(result => {
-      this.contactService.editContact(result);
+      if(result) {
+        this.contactService.editContact(result);
+      }
     });
   }
 
@@ -34,7 +36,9 @@ export class AppComponent {
 
   addContact(){
     this.dialogService.contactDialog().subscribe(result => {
+      if(result) {
         this.contactService.addContact(result);
+      }
     });
   }
 }
