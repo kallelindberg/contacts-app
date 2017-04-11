@@ -14,6 +14,7 @@ import { ContactDialogComponent } from './contact/contact-dialog/contact-dialog.
 import { MapDialogComponent } from './contact/map-dialog/map-dialog.component';
 import { DialogService } from "./contact/services/dialog.service";
 
+
 @NgModule({
   declarations: [
     AppComponent,

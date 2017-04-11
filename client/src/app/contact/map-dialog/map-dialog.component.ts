@@ -23,7 +23,7 @@ export class MapDialogComponent implements OnInit {
   }
 
   mapString(url){
-    return this.sanitizer.bypassSecurityTrustUrl(url);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
   ngOnInit() {

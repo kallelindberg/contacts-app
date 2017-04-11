@@ -1,4 +1,30 @@
+<main fxLayout="column" fxLayoutAlign="end end" >
   <button md-icon-button (click)="closeDialog()">
-    <md-icon class="md-18">mode_edit</md-icon>
+    <md-icon class="md-18">close</md-icon>
   </button>
+  <div fxLayout="column" fxLayoutAlign="center center" >
+    <md-input-container floatPlaceholder="auto">
+      <input mdInput name="componentProperty" [(ngModel)]="contact.firstName" type="text" required
+             placeholder="First Name">
+    </md-input-container>
+    <md-input-container floatPlaceholder="auto">
+      <input mdInput name="componentProperty" [(ngModel)]="contact.lastName" type="text" required
+             placeholder="Last Name">
+    </md-input-container>
+    <md-input-container floatPlaceholder="auto">
+      <input mdInput name="componentProperty" [(ngModel)]="contact.streetAddress" type="text" required
+             placeholder="Street Address">
+    </md-input-container>
+    <md-input-container floatPlaceholder="auto">
+      <input mdInput name="componentProperty" [(ngModel)]="contact.city" type="text" required
+             placeholder="City">
+    </md-input-container>
+    <md-input-container floatPlaceholder="auto">
+      <input mdInput name="componentProperty" [(ngModel)]="contact.phone" type="text" required
+             placeholder="Phone">
+    </md-input-container>
+  </div>
 
+    <button *ngIf="contact.id else elseBlock" md-button (click)="update(contact)">Update</button>
+    <ng-template #elseBlock><button md-button (click)="add(contact)">Submit</button></ng-template>
+</main>

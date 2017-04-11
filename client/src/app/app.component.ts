@@ -19,12 +19,11 @@ export class AppComponent {
 
   contactEdit(contact: Contact){
     this.dialogService.contactDialog(contact).subscribe(result => {
-
+      this.contactService.editContact(result);
     });
   }
 
   removeContact(contact: Contact){
-    //this.selectedContact = contact;
     this.contactService.removeContact(contact);
   }
 
@@ -35,7 +34,7 @@ export class AppComponent {
 
   addContact(){
     this.dialogService.contactDialog().subscribe(result => {
-
+        this.contactService.addContact(result);
     });
   }
 }
