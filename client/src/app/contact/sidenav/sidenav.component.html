@@ -1,0 +1,7 @@
+<main fxLayout="column" fxLayoutAlign="start center">
+<md-sidenav-container>
+  <button md-icon-button (click)="openSideNav()"><md-icon (click)="openSideNav">list</md-icon></button>
+  <md-sidenav mode="over" opened="{{isOpened}}"></md-sidenav>
+  <app-contact-main></app-contact-main>
+</md-sidenav-container>
+</main>

@@ -1,0 +1,19 @@
+
+<main fxLayout="column" fxLayoutAlign="center center">
+  <md-card>
+    <div fxLayout="column" fxLayoutAlign="center center">
+  <md-input-container floatPlaceholder="auto">
+    <input mdInput name="userId" [(ngModel)]="login.userId" type="text" required
+           placeholder="User Name">
+  </md-input-container>
+  <md-input-container floatPlaceholder="auto">
+    <input mdInput name="password" [(ngModel)]="login.password" type="text" required
+           placeholder="Password">
+  </md-input-container>
+  <button md-fab (click)="navigateToApp()">Login</button>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center center">
+  <md-card-content align="center"><br>{{legend}}</md-card-content>
+    </div>
+  </md-card>
+</main>

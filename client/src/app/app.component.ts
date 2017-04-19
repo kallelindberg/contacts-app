@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import {Contact} from "./contact/contact";
-import {ContactService} from "./contact/services/contact.service";
-import {DialogService} from "./contact/services/dialog.service";
 
 
 @Component({
@@ -11,34 +8,10 @@ import {DialogService} from "./contact/services/dialog.service";
 })
 export class AppComponent {
 
-  contacts: Contact[];
 
-  constructor(private contactService: ContactService, private dialogService: DialogService){
-      this.contacts = contactService.findContacts();
+
+  constructor(){
+
   }
 
-  contactEdit(contact: Contact){
-    this.dialogService.contactDialog(contact).subscribe(result => {
-      if(result) {
-        this.contactService.editContact(result);
-      }
-    });
-  }
-
-  removeContact(contact: Contact){
-    this.contactService.removeContact(contact);
-  }
-
-  showContact(contact: Contact){
-    let address = contact.streetAddress + ' ' + contact.city;
-    this.dialogService.mapDialog(address);
-  }
-
-  addContact(){
-    this.dialogService.contactDialog().subscribe(result => {
-      if(result) {
-        this.contactService.addContact(result);
-      }
-    });
-  }
 }

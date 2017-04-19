@@ -20,6 +20,7 @@ export class ContactListComponent implements OnInit {
     this.editContact = new EventEmitter();
     this.removeContact = new EventEmitter();
     this.showContact = new EventEmitter();
+
   }
 
   ngOnInit() {

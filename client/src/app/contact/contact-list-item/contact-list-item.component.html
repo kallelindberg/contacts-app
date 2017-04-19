@@ -1,7 +1,7 @@
 <md-card>
-  <h1 class="md-headline">{{contact.firstName + ' ' + contact.lastName}}</h1>
-  <p class="md-body-1">{{contact.streetAddress + ' ' + contact.city}}<br>
-    {{contact.phone}}</p>
+  <h1 class="md-title">{{contact.firstName + ' ' + contact.lastName}}</h1>
+  <p class="md-body-2">{{contact | contactAddress}}</p>
+  <p class="md-body-2">  {{contact.phone}}</p>
   <div fxLayout="row" fxLayoutAlign="space-between end" >
   <div fxLayout="row" fxLayoutAlign="start start">
   <button md-icon-button (click)="editContact(contact)">
