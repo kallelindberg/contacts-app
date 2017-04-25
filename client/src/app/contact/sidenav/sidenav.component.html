@@ -1,7 +1,10 @@
 <main fxLayout="column" fxLayoutAlign="start center">
 <md-sidenav-container>
-  <button md-icon-button (click)="openSideNav()"><md-icon (click)="openSideNav">list</md-icon></button>
-  <md-sidenav mode="over" opened="{{isOpened}}"></md-sidenav>
+  <button md-icon-button (click)="openSideNav()"><md-icon>list</md-icon></button>
+  <md-sidenav mode="over" opened="{{isOpened}}" #mySidenav (close)="closeSideNav()">
+    <button md-icon-button (click)="closeSideNav()"><md-icon>close</md-icon></button>
+    <button md-icon-button ><md-icon>do_not_disturb</md-icon></button>
+  </md-sidenav>
   <app-contact-main></app-contact-main>
 </md-sidenav-container>
 </main>
