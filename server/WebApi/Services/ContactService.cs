@@ -13,7 +13,11 @@ namespace WebApi.services
 
         public ContactService()
         {
-            _contacts = new List<Contact>();
+            _contacts = new List<Contact>()
+            {
+                new Contact(0,"seppo","sukunimi","2341234234","osoite", "lepra"),
+                new Contact(1,"sergtergergo","syeryeryerymi","234","eryeryerye", "herhter")
+            };
 
         }
 
@@ -29,7 +33,7 @@ namespace WebApi.services
 
         public List<Contact> AddUser(Contact contact)
         {
-            _contacts.Add(new Contact(GetId(), contact.FirstName,contact.LastName,contact.Phone,contact.Address));
+            _contacts.Add(new Contact(contact.Id, contact.FirstName,contact.LastName,contact.Phone,contact.Address,contact.City));
             return _contacts;
         }
 
@@ -57,12 +61,13 @@ namespace WebApi.services
             var lastSaved = _contacts.OrderByDescending(contact => contact.Id).FirstOrDefault();
             if (lastSaved != null)
             {
-                return lastSaved.Id +1;
+                return lastSaved.Id + 1;
             }
             else
             {
                 return 0;
             }
+            
         }
     }
 }

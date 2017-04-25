@@ -11,10 +11,10 @@ import {Contact} from "../contact";
 })
 export class ContactMainComponent implements OnInit {
 
-  contacts: Contact[];
+  //contacts: Contact[];
 
   constructor(private contactService: ContactService, private dialogService: DialogService){
-    this.contacts = contactService.findContacts();
+
   }
 
   showContact(contact: Contact){
@@ -42,7 +42,19 @@ export class ContactMainComponent implements OnInit {
     this.contactService.removeContact(contact);
   }
 
+  loadContacts(){
+    this.contactService.findContacts().subscribe(data =>{this.contactService.contacts = data;},error => {
+      console.log(error);
+    });
+  }
+
+  contacts(){
+    return this.contactService.contacts;
+  }
+
   ngOnInit() {
+    this.loadContacts();
+
   }
 
 }

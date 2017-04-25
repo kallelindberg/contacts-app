@@ -9,6 +9,7 @@ import { RouterModule } from "@angular/router";
 
 import { ContactService } from "./contact/services/contact.service";
 import { DialogService } from "./contact/services/dialog.service";
+import { ContactHttpService } from "./contact/services/contact-http.service";
 
 import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
 import { GoogleMapsPipe } from './contact/pipes/google-maps.pipe';
@@ -63,7 +64,7 @@ const routes = [
     BrowserAnimationsModule
   ],
   entryComponents:[ContactDialogComponent, MapDialogComponent],
-  providers: [ContactService, DialogService],
+  providers: [ContactService, DialogService, ContactHttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

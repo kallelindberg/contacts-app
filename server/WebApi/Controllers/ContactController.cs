@@ -14,6 +14,7 @@ namespace WebApi.Controllers
     {
         private static ContactService _contactService = new ContactService();
 
+
         [HttpGet]
         [Route("")]
         public List<Contact> GetAll()
