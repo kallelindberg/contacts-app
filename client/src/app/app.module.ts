@@ -22,6 +22,7 @@ import { MapDialogComponent } from './contact/map-dialog/map-dialog.component';
 import { LoginComponent } from './contact/login/login.component';
 import { ContactMainComponent } from './contact/contact-main/contact-main.component';
 import { SidenavComponent } from './contact/sidenav/sidenav.component';
+import {LocalStorageService} from "./contact/services/local-storage.service";
 
 
 
@@ -64,7 +65,7 @@ const routes = [
     BrowserAnimationsModule
   ],
   entryComponents:[ContactDialogComponent, MapDialogComponent],
-  providers: [ContactService, DialogService, ContactHttpService],
+  providers: [ContactService, DialogService, ContactHttpService, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

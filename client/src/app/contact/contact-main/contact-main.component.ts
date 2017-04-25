@@ -52,6 +52,8 @@ export class ContactMainComponent implements OnInit {
     return this.contactService.contacts;
   }
 
+
+
   ngOnInit() {
     this.loadContacts();
 

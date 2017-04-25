@@ -1,7 +1,11 @@
 import {Contact} from "../contact";
+
+
 export interface ContactStorage {
 
-  findContact();
+  showContact();
   addContact(contact: Contact);
+  removeContact(index);
+  editContact(contact: Contact);
 
 }
