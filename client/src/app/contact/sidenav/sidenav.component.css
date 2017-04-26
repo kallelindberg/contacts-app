@@ -3,5 +3,12 @@ html, body, material-app, md-sidenav-container, .my-content {
   height: 100%;
 }
 md-sidenav {
-  width: 250px;
+  width: 400px;
+  padding-left: 5px;
+  padding-right: 10px;
 }
+md-sidenav-container{
+
+  height: 99vh;
+}
+

@@ -1,10 +1,26 @@
-<main fxLayout="column" fxLayoutAlign="start center">
-<md-sidenav-container>
-  <button md-icon-button (click)="openSideNav()"><md-icon>list</md-icon></button>
-  <md-sidenav mode="over" opened="{{isOpened}}" #mySidenav (close)="closeSideNav()">
-    <button md-icon-button (click)="closeSideNav()"><md-icon>close</md-icon></button>
-    <button md-icon-button ><md-icon>do_not_disturb</md-icon></button>
-  </md-sidenav>
-  <app-contact-main></app-contact-main>
-</md-sidenav-container>
+<main  fxLayout="column" fxLayoutAlign="start start">
+
+  <md-sidenav-container >
+    <button md-icon-button (click)="openSideNav()"><md-icon>list</md-icon></button>
+    <md-sidenav mode="over" opened="{{isOpened}}" #mySidenav (close)="closeSideNav()" style="background-color: transparent;">
+      <div style="height: 99vh">
+      <div fxLayout="column" fxLayoutAlign="start end" style="background-color: ghostwhite;">
+          <button md-icon-button (click)="closeSideNav()"><md-icon>close</md-icon></button>
+        </div>
+        <md-card style="background-color: ghostwhite;" >
+          <md-card-header>
+        <div fxLayout="column" fxLayoutAlign="start center" style="height: 400px;">
+          <p class="md-header"> Welcome, {{login.userId}}</p>
+        </div>
+          </md-card-header>
+        <md-card-footer></md-card-footer>
+        <div fxLayout="column" fxLayoutAlign="end end">
+          <p class="md-body-2"> Log out <button md-icon-button (click)="logOut()"><md-icon>do_not_disturb</md-icon></button></p>
+        </div>
+
+        </md-card>
+      </div>
+    </md-sidenav>
+    <app-contact-main></app-contact-main>
+  </md-sidenav-container>
 </main>

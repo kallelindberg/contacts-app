@@ -23,6 +23,7 @@ import { LoginComponent } from './contact/login/login.component';
 import { ContactMainComponent } from './contact/contact-main/contact-main.component';
 import { SidenavComponent } from './contact/sidenav/sidenav.component';
 import {LocalStorageService} from "./contact/services/local-storage.service";
+import {LoginService} from "./contact/services/login.service";
 
 
 
@@ -65,7 +66,7 @@ const routes = [
     BrowserAnimationsModule
   ],
   entryComponents:[ContactDialogComponent, MapDialogComponent],
-  providers: [ContactService, DialogService, ContactHttpService, LocalStorageService],
+  providers: [ContactService, DialogService, ContactHttpService, LocalStorageService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

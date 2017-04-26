@@ -8,8 +8,6 @@ import { Contact } from '../contact';
 })
 export class ContactListComponent implements OnInit {
 
-  selectedContact: Contact;
-
   @Input() contacts: Contact[];
   @Output() editContact: EventEmitter<Contact>;
   @Output() removeContact: EventEmitter<Contact>;

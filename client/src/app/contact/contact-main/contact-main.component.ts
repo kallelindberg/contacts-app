@@ -11,14 +11,11 @@ import {Contact} from "../contact";
 })
 export class ContactMainComponent implements OnInit {
 
-  //contacts: Contact[];
-
   constructor(private contactService: ContactService, private dialogService: DialogService){
 
   }
 
   showContact(contact: Contact){
-    //let address = contact.streetAddress + ' ' + contact.city;
     this.dialogService.mapDialog(contact);
   }
 

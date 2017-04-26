@@ -11,7 +11,7 @@ export class ContactService {
 
   contactStorage: ContactStorage;
 
-  public contacts: Contact[];
+  contacts: Contact[];
 
   constructor(private contactHttpService: ContactHttpService,
               private localStorageService: LocalStorageService) {

@@ -1,4 +1,7 @@
-import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
+import {Login} from "../login";
+import {LoginService} from "../services/login.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-sidenav',
@@ -7,10 +10,10 @@ import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/co
 })
 export class SidenavComponent implements OnInit {
 
-  //@Output('close') closed: EventEmitter<boolean>;
+  login: Login;
   isOpened: boolean = false;
 
-  constructor() {
+  constructor(private router:Router,private loginService: LoginService) {
   }
 
   closeSideNav(){
@@ -22,7 +25,12 @@ export class SidenavComponent implements OnInit {
     this.isOpened = true;
   }
 
+  logOut(){
+    this.router.navigate(['login']);
+  }
+
   ngOnInit() {
+    this.login = this.loginService.login;
 
   }
 

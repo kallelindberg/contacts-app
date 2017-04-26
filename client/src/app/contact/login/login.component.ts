@@ -1,6 +1,7 @@
 import { Component, Output, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { Login } from "../login";
+import {LoginService} from "../services/login.service";
 
 
 @Component({
@@ -10,19 +11,17 @@ import { Login } from "../login";
 })
 export class LoginComponent implements OnInit {
 
-  login: Login;
+  login = new Login('','');
   legend = '';
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private loginService:LoginService) { }
 
   ngOnInit() {
-    if(!this.login){
-      this.login = new Login('','');
-    }
+
   }
 
   navigateToApp(){
-    if(this.login.userId =='1' && this.login.password =='2') {
+    if(this.loginService.logIn(this.login.userId, this.login.password)) {
       this.router.navigate(['app']);
     }
     else{
