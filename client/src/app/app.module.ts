@@ -24,6 +24,7 @@ import { ContactMainComponent } from './contact/contact-main/contact-main.compon
 import { SidenavComponent } from './contact/sidenav/sidenav.component';
 import {LocalStorageService} from "./contact/services/local-storage.service";
 import {LoginService} from "./contact/services/login.service";
+import { VibrationClickDirective } from './contact/directives/vibration-click.directive';
 
 
 
@@ -54,7 +55,8 @@ const routes = [
     GoogleMapsPipe,
     LoginComponent,
     ContactMainComponent,
-    SidenavComponent
+    SidenavComponent,
+    VibrationClickDirective
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 <main fxLayout="column" fxLayoutAlign="end end" >
-  <button md-icon-button (click)="closeDialog()">
+  <button vibrationClick md-icon-button (click)="closeDialog()">
     <md-icon class="md-18">close</md-icon>
   </button>
   <div fxLayout="column" fxLayoutAlign="center center" >
@@ -25,6 +25,6 @@
     </md-input-container>
   </div>
 
-    <button *ngIf="contact.id else elseBlock" md-button (click)="update(contact)">Update</button>
-    <ng-template #elseBlock><button md-button (click)="add(contact)">Submit</button></ng-template>
+    <button vibrationClick *ngIf="contact.id else elseBlock" md-button (click)="update(contact)">Update</button>
+    <ng-template #elseBlock><button vibrationClick md-button (click)="add(contact)">Submit</button></ng-template>
 </main>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, HostListener, EventEmitter, Input, OnInit } from '@angular/core';
 import { Contact } from '../contact';
 
 
