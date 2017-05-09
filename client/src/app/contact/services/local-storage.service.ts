@@ -9,7 +9,7 @@ export class LocalStorageService implements ContactStorage {
   private localStorageKey ='contacts';
 
   constructor() {
-    if(localStorage.getItem(this.localStorageKey) === null){
+    if(!localStorage.getItem(this.localStorageKey)){
       localStorage.setItem(this.localStorageKey, JSON.stringify([]));
     }
   }
@@ -43,11 +43,11 @@ export class LocalStorageService implements ContactStorage {
 
 
   private getFromLocalStorage(): Contact[]{
-    return JSON.parse(localStorage[this.localStorageKey]);
+    return JSON.parse(localStorage.getItem(this.localStorageKey));
   }
 
   private saveToLocalStorage(contacts: Contact[]){
-    localStorage[this.localStorageKey] = JSON.stringify(contacts);
+    localStorage.setItem(this.localStorageKey,JSON.stringify(contacts));
   }
 
 }

@@ -10,6 +10,9 @@ export class GoogleMapsPipe implements PipeTransform {
 
 
   transform(contact: Contact, args?: any): any {
+
+    if(!contact)return '';
+
     let addressParts = [contact.streetAddress || null, contact.city || null];
     addressParts = _.reject(addressParts, _.isNull);
     let url = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAllFNsh8DhMPeH44VrQbCxvjD8ztAUPJI&q=" + addressParts.join(', ');

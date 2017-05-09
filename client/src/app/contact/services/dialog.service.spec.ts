@@ -1,6 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
-
+import * as _ from 'lodash';
 import { DialogService } from './dialog.service';
+import {Contact} from "app/contact/contact";
 
 describe('DialogService', () => {
   beforeEach(() => {
@@ -10,6 +11,7 @@ describe('DialogService', () => {
   });
 
   it('should ...', inject([DialogService], (service: DialogService) => {
-    expect(service).toBeTruthy();
+
+    expect(1).toEqual(1);
   }));
 });
