@@ -2,6 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import * as _ from 'lodash';
 import { DialogService } from './dialog.service';
 import {Contact} from "app/contact/contact";
+import {BrowserDynamicTestingModule} from "@angular/platform-browser-dynamic/testing";
 
 describe('DialogService', () => {
   beforeEach(() => {
@@ -12,6 +13,6 @@ describe('DialogService', () => {
 
   it('should ...', inject([DialogService], (service: DialogService) => {
 
-    expect(1).toEqual(1);
+    expect(service).toBeTruthy();
   }));
 });

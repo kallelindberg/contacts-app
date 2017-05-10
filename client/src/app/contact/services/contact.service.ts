@@ -29,7 +29,7 @@ export class ContactService {
         this.contacts.splice(index, 1);
       }
       else{
-        this.contacts = result;
+        this.contacts = result.json();
       }
     });
   }

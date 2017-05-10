@@ -71,7 +71,7 @@ describe('LocalStorageService', () => {
     service.removeContact(1).subscribe((contacts: Contact[]) => {
       _.forEach(contacts, function (c){
         expect(_.create(Contact.prototype, contacts[c.id])).toEqual(_.create(Contact.prototype, contactsComparer[c.id]));
-      })
+      });
     });
   }));
 

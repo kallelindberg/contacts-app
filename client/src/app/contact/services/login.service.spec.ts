@@ -10,6 +10,6 @@ describe('LoginService', () => {
   });
 
   it('should ...', inject([LoginService], (service: LoginService) => {
-    expect(service).toBeTruthy();
+    expect(service.login).toBe(true);
   }));
 });
