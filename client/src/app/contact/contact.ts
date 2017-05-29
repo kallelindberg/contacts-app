@@ -4,15 +4,15 @@ export class Contact {
   firstName: string;
   lastName: string;
   phone: string;
-  streetAddress: string;
+  address: string;
   city: string;
 
-  constructor(id: number, firstName?: string, lastName?: string, phone?: string, streetAddress?: string, city?: string) {
+  constructor(id: number, firstName?: string, lastName?: string, phone?: string, address?: string, city?: string) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
     this.phone = phone;
-    this.streetAddress = streetAddress;
+    this.address = address;
     this.city = city;
   }
 }

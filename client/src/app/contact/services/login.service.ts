@@ -1,23 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Login } from '../login';
 import * as _ from "lodash";
+import {ContactHttpService} from "./contact-http.service";
 
 @Injectable()
 export class LoginService {
 
-  login: Login = new Login('Username','password');
+  login: Login;
 
 
-  constructor() { }
+  constructor(private contactHttpService: ContactHttpService) { }
 
-  logIn(userId, password){
+  public authenticate(login){
 
-    if(userId == this.login.userId && password == this.login.password) {
-      return true;
-    }
-    else{
-      return false;
-    }
+    this.contactHttpService.authenticate(login).subscribe(result => {
+      return result.json();
+    })
+
   }
 
 }

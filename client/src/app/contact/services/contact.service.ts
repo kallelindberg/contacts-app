@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Contact } from "../contact";
-import * as _ from "lodash";
 import {ContactHttpService} from "./contact-http.service";
 import {ContactStorage} from "./contact-storage";
 import {environment} from "../../../environments/environment";
@@ -23,10 +22,11 @@ export class ContactService {
   }
 
   public removeContact(contact){
-    let index =  this.contacts.findIndex((item) => item.id === contact.id);
-    this.contactStorage.removeContact(index).subscribe(result => {
+    this.contactStorage.removeContact(contact.id).subscribe(result => {
       if(result.status == 200){
+        let index =  this.contacts.findIndex((item) => item.id === contact.id);
         this.contacts.splice(index, 1);
+        this.contacts = result.json();
       }
       else{
         this.contacts = result.json();
@@ -35,20 +35,14 @@ export class ContactService {
   }
 
   public addContact(contact){
-    if(this.contacts[0]) {
-      let maxId = _.maxBy(this.contacts, "id").id;
-      contact.id = maxId + 1;
-    }
-    else{
-      contact.id = 1;
-
-    }
+    contact.id=0;
     this.contactStorage.addContact(contact).subscribe(result => {
       if(result.status == 200){
         this.contacts.push(contact);
+        this.contacts = result.json();
       }
       else{
-        this.contacts = result;
+        this.contacts = result.json();
       }
     });
   }
@@ -58,9 +52,10 @@ export class ContactService {
       if (result.status == 200) {
         let index = this.contacts.findIndex((item) => item.id === contact.id);
         this.contacts.splice(index, 1, contact);
-    }
+        this.contacts = result.json();
+      }
       else{
-        this.contacts = result;
+        this.contacts = result.json();
       }
     });
   }

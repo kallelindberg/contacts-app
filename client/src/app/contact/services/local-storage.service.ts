@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {ContactStorage} from "./contact-storage";
 import {Contact} from "../contact";
 import {Observable} from "rxjs";
+import * as _ from "lodash";
 
 @Injectable()
 export class LocalStorageService implements ContactStorage {
@@ -21,6 +22,14 @@ export class LocalStorageService implements ContactStorage {
 
   public addContact(contact : Contact){
     let contacts = this.getFromLocalStorage();
+    if(contacts[0]) {
+      let maxId = _.maxBy(contacts, "id").id;
+      contact.id = maxId + 1;
+    }
+    else{
+      contact.id = 1;
+
+    }
     contacts.push(contact);
     this.saveToLocalStorage(contacts);
     return Observable.of(contacts);

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, RequestOptions, XHRBackend } from '@angular/http';
 import { MaterialModule }from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,6 +10,7 @@ import { RouterModule } from "@angular/router";
 import { ContactService } from "./contact/services/contact.service";
 import { DialogService } from "./contact/services/dialog.service";
 import { ContactHttpService } from "./contact/services/contact-http.service";
+import { HttpService } from "./utils/http.service";
 
 import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
 import { GoogleMapsPipe } from './contact/pipes/google-maps.pipe';
@@ -68,7 +69,15 @@ const routes = [
     BrowserAnimationsModule
   ],
   entryComponents:[ContactDialogComponent, MapDialogComponent],
-  providers: [ContactService, DialogService, ContactHttpService, LocalStorageService, LoginService],
+  providers: [ContactService, DialogService, ContactHttpService, LocalStorageService, LoginService,
+    {
+      provide: HttpService,
+      useFactory: (backend: XHRBackend, options: RequestOptions) => {
+        return new HttpService(backend, options);
+    },
+    deps: [XHRBackend, RequestOptions]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

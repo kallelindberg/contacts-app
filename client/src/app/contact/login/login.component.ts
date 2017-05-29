@@ -21,7 +21,9 @@ export class LoginComponent implements OnInit {
   }
 
   navigateToApp(){
-    if(this.loginService.logIn(this.login.userId, this.login.password)) {
+    var login = this.loginService.authenticate(this.login);
+    console.log(login)
+    if(login) {
       this.router.navigate(['app']);
     }
     else{
