@@ -15,7 +15,7 @@ namespace WebApi.Repositories
         {
             _context = context;
             var login = new Login("1","2");
-            if (FindByUsername(login) == null)
+            if (FindByUsername(login.UserName) == null)
             {
                 _context.Login.Add(login);
                 _context.SaveChanges();
@@ -28,9 +28,9 @@ namespace WebApi.Repositories
             return login;
         }
 
-        public Login FindByUsername(Login login)
+        public Login FindByUsername(string userName)
         {
-            return _context.Login.FirstOrDefault(u => u.UserName == login.UserName);
+            return _context.Login.FirstOrDefault(u => u.UserName == userName);
         }
 
         public Login FindByUsernameAndPassword(Login login)

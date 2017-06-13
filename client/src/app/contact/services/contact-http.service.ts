@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import {Contact} from "../contact";
 import {Http} from "@angular/http";
 import {environment} from "../../../environments/environment";
-import {Login} from "../login";
+import {Login} from "../../user/login";
+import {HttpService} from "../../utils/http.service";
+import {ContactStorage} from "./contact-storage";
 
 @Injectable()
-export class ContactHttpService {
+export class ContactHttpService implements ContactStorage{
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpService) { }
 
   public showContact(){
     return this.http
@@ -35,10 +37,5 @@ export class ContactHttpService {
       .map(response => response);
   }
 
-  public authenticate(login : Login){
-    return this.http
-      .post(environment.loginUrl+'/authenticate', login)
-      .map(response => response);
-  }
 
 }

@@ -5,5 +5,7 @@
 
 export const environment = {
   production: false,
-  endPointUrl: ''
+  endPointUrl:'',
+  loginUrl: '',
+  userUrl: ''
 };

@@ -8,7 +8,7 @@ namespace WebApi.Repositories
 {
     public interface ILoginRepository
     {
-        Login FindByUsername(Login login);
+        Login FindByUsername(string userName);
         Login FindByUsernameAndPassword(Login login);
     }
 }

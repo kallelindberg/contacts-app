@@ -13,10 +13,9 @@ using WebApi.Services;
 namespace WebApi.Controllers
 {
 
-    [Route("api/login")]
+    [Route("api/user")]
     [Authorize("Bearer")]
     [EnableCors("MyPolicy")]
-
     public class LoginController : Controller
     {
         private readonly ILoginService _loginService;
@@ -26,10 +25,11 @@ namespace WebApi.Controllers
             _loginService = loginService;
         }
         [HttpPut]
-        public IActionResult Login([FromBody]Login login)
+        public IActionResult Login()
         {
-            var user = _loginService.FindByUsernameAndPassword(login);
-            return new JsonResult(login);
+            var userId = User.Identity.Name;
+            var user = _loginService.FindByUsername(userId);
+            return new JsonResult(user);
         }
     }
 }

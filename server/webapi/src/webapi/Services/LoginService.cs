@@ -18,5 +18,10 @@ namespace WebApi.Services
         {
             return _loginRepository.FindByUsernameAndPassword(login);
         }
+
+        public Login FindByUsername(string userName)
+        {
+            return _loginRepository.FindByUsername(userName);
+        }
     }
 }

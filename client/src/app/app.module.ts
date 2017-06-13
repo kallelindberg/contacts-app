@@ -11,9 +11,8 @@ import { ContactService } from "./contact/services/contact.service";
 import { DialogService } from "./contact/services/dialog.service";
 import { ContactHttpService } from "./contact/services/contact-http.service";
 import { HttpService } from "./utils/http.service";
-
-import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
-import { GoogleMapsPipe } from './contact/pipes/google-maps.pipe';
+import {LocalStorageService} from "./contact/services/local-storage.service";
+import {UserService} from "./user/user.service";
 
 import { AppComponent } from './app.component';
 import { ContactListComponent } from './contact/contact-list/contact-list.component';
@@ -23,9 +22,13 @@ import { MapDialogComponent } from './contact/map-dialog/map-dialog.component';
 import { LoginComponent } from './contact/login/login.component';
 import { ContactMainComponent } from './contact/contact-main/contact-main.component';
 import { SidenavComponent } from './contact/sidenav/sidenav.component';
-import {LocalStorageService} from "./contact/services/local-storage.service";
-import {LoginService} from "./contact/services/login.service";
+
+import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
+import { GoogleMapsPipe } from './contact/pipes/google-maps.pipe';
+
 import { VibrationClickDirective } from './contact/directives/vibration-click.directive';
+import {AuthenticationService} from "./user/authentication/authentication.service";
+import {UserHttpService} from "./user/user-http.service";
 
 
 
@@ -44,6 +47,10 @@ const routes = [
     component: LoginComponent
   }
 ];
+
+export function getHttp(backend: XHRBackend, options: RequestOptions) {
+  return new HttpService(backend, options);
+}
 
 @NgModule({
   declarations: [
@@ -69,12 +76,10 @@ const routes = [
     BrowserAnimationsModule
   ],
   entryComponents:[ContactDialogComponent, MapDialogComponent],
-  providers: [ContactService, DialogService, ContactHttpService, LocalStorageService, LoginService,
+  providers: [ContactService, DialogService, ContactHttpService, LocalStorageService, UserService, AuthenticationService, UserHttpService,
     {
       provide: HttpService,
-      useFactory: (backend: XHRBackend, options: RequestOptions) => {
-        return new HttpService(backend, options);
-    },
+      useFactory: getHttp,
     deps: [XHRBackend, RequestOptions]
     }
   ],

@@ -1,5 +1,5 @@
---temp-output:D:\dev\net core\webapi\src\webapi\obj\Debug\netcoreapp1.0\
---out:D:\dev\net core\webapi\src\webapi\bin\Debug\netcoreapp1.0\webapi.dll
+--temp-output:D:\dev\contacts-app\server\webapi\src\webapi\obj\Debug\netcoreapp1.0\
+--out:D:\dev\contacts-app\server\webapi\src\webapi\bin\Debug\netcoreapp1.0\webapi.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -194,25 +194,25 @@
 --reference:C:\Users\ekoodi\.nuget\packages\System.Threading.Timer\4.3.0\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\ekoodi\.nuget\packages\System.Xml.ReaderWriter\4.3.0\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\ekoodi\.nuget\packages\System.Xml.XDocument\4.3.0\ref\netstandard1.3\System.Xml.XDocument.dll
---resource:"D:\dev\net core\webapi\src\webapi\obj\Debug\netcoreapp1.0\webapidotnet-compile.deps.json",webapi.deps.json
-D:\dev\net core\webapi\src\webapi\Program.cs
-D:\dev\net core\webapi\src\webapi\Startup.cs
-D:\dev\net core\webapi\src\webapi\Config\AppSettings.cs
-D:\dev\net core\webapi\src\webapi\Config\TokenBuilder.cs
-D:\dev\net core\webapi\src\webapi\Config\TokenOptions.cs
-D:\dev\net core\webapi\src\webapi\Controllers\AuthenticationController.cs
-D:\dev\net core\webapi\src\webapi\Controllers\ContactController.cs
-D:\dev\net core\webapi\src\webapi\Controllers\LoginController.cs
-D:\dev\net core\webapi\src\webapi\Controllers\Communication\AuthRequest.cs
-D:\dev\net core\webapi\src\webapi\Controllers\Communication\AuthResponse.cs
-D:\dev\net core\webapi\src\webapi\Data\DBContext.cs
-D:\dev\net core\webapi\src\webapi\Models\Contact.cs
-D:\dev\net core\webapi\src\webapi\Models\Login.cs
-D:\dev\net core\webapi\src\webapi\Repositories\ContactsRepository.cs
-D:\dev\net core\webapi\src\webapi\Repositories\IContactsRepository.cs
-D:\dev\net core\webapi\src\webapi\Repositories\ILoginRepository.cs
-D:\dev\net core\webapi\src\webapi\Repositories\LoginRepository.cs
-D:\dev\net core\webapi\src\webapi\Services\ContactService.cs
-D:\dev\net core\webapi\src\webapi\Services\IContactService.cs
-D:\dev\net core\webapi\src\webapi\Services\ILoginService.cs
-D:\dev\net core\webapi\src\webapi\Services\LoginService.cs
+--resource:"D:\dev\contacts-app\server\webapi\src\webapi\obj\Debug\netcoreapp1.0\webapidotnet-compile.deps.json",webapi.deps.json
+D:\dev\contacts-app\server\webapi\src\webapi\Program.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Startup.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Config\AppSettings.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Config\TokenBuilder.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Config\TokenOptions.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Controllers\AuthenticationController.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Controllers\ContactController.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Controllers\LoginController.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Controllers\Communication\AuthRequest.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Controllers\Communication\AuthResponse.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Data\DBContext.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Models\Contact.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Models\Login.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Repositories\ContactsRepository.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Repositories\IContactsRepository.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Repositories\ILoginRepository.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Repositories\LoginRepository.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Services\ContactService.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Services\IContactService.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Services\ILoginService.cs
+D:\dev\contacts-app\server\webapi\src\webapi\Services\LoginService.cs

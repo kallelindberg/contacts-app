@@ -50,6 +50,7 @@ namespace WebApi
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddDbContext<ContactContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
+
             services.AddAuthorization(auth =>
             {
                 auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
@@ -58,11 +59,13 @@ namespace WebApi
                     .Build());
             });
 
-            services.AddMvc();
+
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>{builder.AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader();
             }));
+
+            services.AddMvc();
 
         }
 
@@ -79,7 +82,7 @@ namespace WebApi
             {
                 context.Database.Migrate();
             }
-            app.UseMvc();
+
             app.UseJwtBearerAuthentication(new JwtBearerOptions()
             {
                 TokenValidationParameters = new TokenValidationParameters()
@@ -92,7 +95,7 @@ namespace WebApi
                     ClockSkew = TimeSpan.FromMinutes(0)
                 }
             });
-
+            app.UseMvc();
         }
     }
 }

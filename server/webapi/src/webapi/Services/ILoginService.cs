@@ -10,5 +10,6 @@ namespace WebApi.Services
     {
         //bool Login(Login login);
         Login FindByUsernameAndPassword(Login login);
+        Login FindByUsername(string userName);
     }
 }

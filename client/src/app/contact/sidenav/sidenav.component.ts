@@ -1,6 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {Login} from "../login";
-import {LoginService} from "../services/login.service";
+import {Login} from "../../user/login";
 import {Router} from "@angular/router";
 
 @Component({
@@ -13,7 +12,7 @@ export class SidenavComponent implements OnInit {
   login: Login;
   isOpened: boolean = false;
 
-  constructor(private router:Router,private loginService: LoginService) {
+  constructor(private router:Router) {
   }
 
   closeSideNav(){
@@ -30,7 +29,6 @@ export class SidenavComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.login = this.loginService.login;
 
   }
 
